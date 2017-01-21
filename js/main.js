@@ -25,6 +25,7 @@
     var closureText = "you sneaky neutrality.\n\nciao.";
     var cameraRejectionText = "thanks for being honest.\nrejection requires exiting this piece now.";
     var cameraRejectionSubText = "[refresh the page for one more chance to allow camera access.]";
+    var cameraNotAvailableText = "To view this piece,\nyou need a video camera. Apologiejsefnskcsv...";
     var signature = "Oytun Tez © 2017, Harlem";
 
     var introObject,
@@ -249,27 +250,39 @@
         navigator.getUserMedia({video: true, audio: false}, manageCamera, manageCameraRejection);
     }
 
-    function manageCameraRejection() {
+    function manageCameraRejection(e) {
         removeIntro();
 
-        cameraRejectionObject = new fabric.Text(cameraRejectionText, {
-            fontFamily: '"Lucida Console", Monaco, monospace',
-            fontSize: 30,
-            fill: 'red',
-            textAlign: 'center'
-        });
-        cameraRejectionSubObject = new fabric.Text(cameraRejectionSubText, {
-            fontFamily: '"Lucida Console", Monaco, monospace',
-            fontSize: 16,
-            fill: 'black',
-            textAlign: 'center'
-        });
+        if(typeof(e) === 'undefined' || e.message.indexOf("secure") > -1) {
+            cameraRejectionObject = new fabric.Text(cameraNotAvailableText, {
+                fontFamily: '"Lucida Console", Monaco, monospace',
+                fontSize: 16,
+                fill: 'black',
+                textAlign: 'center'
+            });
 
-        canvas.add(cameraRejectionObject);
-        canvas.add(cameraRejectionSubObject);
-        cameraRejectionObject.center();
-        cameraRejectionSubObject.centerH();
-        cameraRejectionSubObject.setTop(canvasHeight-(cameraRejectionSubObject.getHeight()+100));
+            canvas.add(cameraRejectionObject);
+            cameraRejectionObject.center();
+        } else {
+            cameraRejectionObject = new fabric.Text(cameraRejectionText, {
+                fontFamily: '"Lucida Console", Monaco, monospace',
+                fontSize: 30,
+                fill: 'red',
+                textAlign: 'center'
+            });
+            cameraRejectionSubObject = new fabric.Text(cameraRejectionSubText, {
+                fontFamily: '"Lucida Console", Monaco, monospace',
+                fontSize: 16,
+                fill: 'black',
+                textAlign: 'center'
+            });
+
+            canvas.add(cameraRejectionObject);
+            canvas.add(cameraRejectionSubObject);
+            cameraRejectionObject.center();
+            cameraRejectionSubObject.centerH();
+            cameraRejectionSubObject.setTop(canvasHeight-(cameraRejectionSubObject.getHeight()+100));
+        }
 
         canvas.renderAll();
     }
