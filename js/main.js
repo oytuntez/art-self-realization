@@ -2,26 +2,27 @@
     var canvas;
     // @todo replace this with the actual writing.
     var lines = [
-        "Paris’teki çocuklar 2 dakika geç kalmıştı",
-        "                sen 8 saat",
-        "içine zarf atmıştık, geri döndü",
-        "kimi bulanmış romantizme, dönmüş",
-        "karşı çıkmadı birimiz, öyle güzel, çılgın",
-        "                            çılgın",
-        "                            çılgın",
-        "                        çok güzel",
-        "demokratik flörtler ya bunlar,",
-        "flört de mi değil, flört mü,",
-        "demo-mo-mo-mo-mo layığıyla sarmalamışlar",
-        "            yok, gırtlağıyla",
-        "o bohem oğlanlarınsa aklına camdan evler soktum",
-        "sen her akşam o eve 8 saat geç geliyorsun",
-        "",
-        "Paris’te 2 dakikada bir ıslık, düdük, öttürü..."
+        "so you were born, they say",
+        "into your life, from other lives",
+        "are you a thief?",
+        "have you stolen the universe? OHHH",
+        "that forgotten organism-ity of yours",
+        "u'r reckless, unaware of your history",
+        "yet the chain of superior actions (©you)",
+        "against the strings and algae",
+        "you ignore me, you ignore all:",
+        "you disregard your machineness",
+        "your unconscious calculations,,,",
+        ",,,and how surprised you are",
+        "butts to the right [HOP] to the left",
+        "au revoir your 360° incomprehension",
+        "a beginner level, fragile creature. ―",
+        "no pity for you; no applause for me. ―",
+        "surround yourself with the planet."
     ];
     var introText = "To view this piece,\nyou need to click \"Allow\" \nwhen your browser asks for your camera access.\n\n\n" +
         "You have to step up for the piece.\nNeither it nor I\nshall not go down on knees\nto invite you here.";
-    var closureText = "you sneaky invader.\n\nciao.";
+    var closureText = "you sneaky neutrality.\n\nciao.";
     var cameraRejectionText = "thanks for being honest.\nrejection requires exiting this piece now.";
     var cameraRejectionSubText = "[refresh the page for one more chance to allow camera access.]";
     var signature = "Oytun Tez © 2017, Harlem";
@@ -193,7 +194,8 @@
                 top: (linesStartTop + (linesLineMargin*i)),
                 fontFamily: '"Lucida Console", Monaco, monospace',
                 fontSize: 16,
-                opacity: 0
+                opacity: 0,
+                backgroundColor: 'white'
             });
 
             object.setLeft((canvasWidth-object.getWidth()-linesRightMargin));
