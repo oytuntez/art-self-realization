@@ -111,7 +111,7 @@
 
     function setupMolecules() {
         for(var i = 1; i <= moleculeCount; i++) {
-            fabric.loadSVGFromURL('/img/'+i+'.svg',function(objects,options) {
+            fabric.loadSVGFromURL('img/'+i+'.svg',function(objects,options) {
                 var obj = fabric.util.groupSVGElements(objects, options);
                 obj.setVisible(false);
                 canvas.add(obj).renderAll();
